@@ -5,7 +5,7 @@ package stack;
  *
  * @param <E> the type of elements in this stack
  */
-public interface Stack<E> {
+public interface Stack<E> extends Iterable<E> {
 
     /**
      * Add an item.

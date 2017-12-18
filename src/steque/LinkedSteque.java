@@ -1,14 +1,14 @@
-package queue;
+package steque;
 
 import java.util.Iterator;
 
-public class LinkedQueue<E> implements Queue<E> {
+public class LinkedSteque<E> implements Steque<E> {
 
     private Node first; // link to least recently added node
     private Node last; // link to most recently added node
     private int size;
 
-    public LinkedQueue() {}
+    public LinkedSteque() {}
 
     private class Node {
         E item;
@@ -31,13 +31,18 @@ public class LinkedQueue<E> implements Queue<E> {
     }
 
     @Override
-    public E dequeue() { // remove item from beginning of list
+    public void push(E element) { // add item to beginning of list
+        Node oldFirst = first;
+        first = new Node();
+        first.item = element;
+        first.next = oldFirst;
+        size++;
+    }
+
+    @Override
+    public E pop() { // remove item from beginning of list
         E element = first.item;
         first = first.next;
-
-        if (isEmpty()) {
-            last = null;
-        }
         size--;
         return element;
     }

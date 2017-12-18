@@ -2,7 +2,7 @@ package stack;
 
 import java.util.Iterator;
 
-public class ArrayStack<E> implements Stack<E>, Iterable<E> {
+public class ArrayStack<E> implements Stack<E> {
 
     private E[] elements;
     private int size;

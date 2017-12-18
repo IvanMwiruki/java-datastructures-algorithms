@@ -7,7 +7,7 @@ package bag;
  *
  * @param <E> the type of elements in this bag
  */
-public interface Bag<E> {
+public interface Bag<E> extends Iterable<E> {
 
     /**
      * Add an element.

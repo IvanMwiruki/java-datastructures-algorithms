@@ -2,7 +2,7 @@ package stack;
 
 import java.util.Iterator;
 
-public class LinkedStack<E> implements Stack<E>, Iterable<E> {
+public class LinkedStack<E> implements Stack<E> {
 
     private Node first; // top of stack (most recently added Node)
     private int size;

@@ -5,7 +5,7 @@ package queue;
  *
  * @param <E> the type of elements in this queue
  */
-public interface Queue<E> {
+public interface Queue<E> extends Iterable<E> {
 
     /**
      * Add an item.

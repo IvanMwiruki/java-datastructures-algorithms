@@ -2,7 +2,7 @@ package bag;
 
 import java.util.Iterator;
 
-public class LinkedBag<E> implements Bag<E>, Iterable<E> {
+public class LinkedBag<E> implements Bag<E> {
 
     private Node first;
     private int size;
