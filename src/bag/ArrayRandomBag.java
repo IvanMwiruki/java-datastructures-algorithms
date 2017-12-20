@@ -1,32 +1,25 @@
-package stack;
+package bag;
 
 import java.util.Iterator;
+import java.util.Random;
 
-public class ArrayStack<E> implements Stack<E> {
+/**
+ * A bag that provides random iteration.
+ */
+public class ArrayRandomBag<E> implements Bag<E> {
 
     private E[] elements;
     private int size;
 
-    public ArrayStack() {}
+    public ArrayRandomBag() {}
 
     @Override
-    public void push(E element) {
+    public void add(E element) {
         if (size == elements.length) {
             resize(2 * elements.length);
         }
 
         elements[size++] = element;
-    }
-
-    @Override
-    public E pop() {
-        E element = elements[--size];
-        elements[size] = null;
-
-        if (size > 0 && size <= elements.length / 4) {
-            resize(elements.length / 2);
-        }
-        return element;
     }
 
     @Override
@@ -49,10 +42,10 @@ public class ArrayStack<E> implements Stack<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return new ReverseArrayIterator();
+        return new RandomArrayIterator();
     }
 
-    private class ReverseArrayIterator implements Iterator<E> {
+    private class RandomArrayIterator implements Iterator<E> {
 
         @Override
         public boolean hasNext() {
@@ -61,7 +54,8 @@ public class ArrayStack<E> implements Stack<E> {
 
         @Override
         public E next() {
-            return elements[--size];
+            int index = new Random().nextInt(size);
+            return elements[index];
         }
     }
 }

@@ -2,8 +2,6 @@ package queue;
 
 /**
  * A collection based on the first-in-first-out policy.
- *
- * @param <E> the type of elements in this queue
  */
 public interface Queue<E> extends Iterable<E> {
 

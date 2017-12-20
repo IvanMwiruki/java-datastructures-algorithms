@@ -2,8 +2,6 @@ package stack;
 
 /**
  * A collection based on the last-in-first-out policy.
- *
- * @param <E> the type of elements in this stack
  */
 public interface Stack<E> extends Iterable<E> {
 
