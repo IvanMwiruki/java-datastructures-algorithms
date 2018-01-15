@@ -18,7 +18,7 @@ public class UnorderedLinkedListSequentialSearchSymbolTable<K, V> implements Uno
         V value;
         Node next;
 
-        public Node(K key, V value, Node next) {
+        private Node(K key, V value, Node next) {
             this.key = key;
             this.value = value;
             this.next = next;

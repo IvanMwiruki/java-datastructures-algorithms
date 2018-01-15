@@ -31,7 +31,9 @@ public class MergeSort implements Sorter{
 
         topDownMergeSort(target, mid + 1, high);// sort right half
 
-        merge(target, low, mid, high); // merge sorted sub arrays
+        if (Sorter.less(target[mid + 1], target[mid])) { // this skips merging if mid is <= mid + 1, meaning the 2 arrays are already sorted together
+            merge(target, low, mid, high); // merge sorted sub arrays
+        }
     }
 
     private void merge(Comparable[] target, int low, int mid, int high) {
