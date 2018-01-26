@@ -32,13 +32,16 @@ public class LinkedQueue<E> implements Queue<E> {
 
     @Override
     public E dequeue() { // remove item from beginning of list
+        if (isEmpty()) {
+            return null;
+        }
         E element = first.item;
         first = first.next;
+        size--;
 
         if (isEmpty()) {
             last = null;
         }
-        size--;
         return element;
     }
 

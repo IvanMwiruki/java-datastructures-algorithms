@@ -57,7 +57,7 @@ public class LinkedStack<E> implements Stack<E> {
 
         @Override
         public E next() {
-            E element = first.item;
+            E element = current.item;
             current = current.next;
             return element;
         }

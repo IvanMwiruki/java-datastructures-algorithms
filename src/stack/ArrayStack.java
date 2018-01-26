@@ -23,7 +23,7 @@ public class ArrayStack<E> implements Stack<E> {
         E element = elements[--size];
         elements[size] = null;
 
-        if (size > 0 && size <= elements.length / 4) {
+        if (size <= elements.length / 4) {
             resize(elements.length / 2);
         }
         return element;
@@ -54,14 +54,16 @@ public class ArrayStack<E> implements Stack<E> {
 
     private class ReverseArrayIterator implements Iterator<E> {
 
+        private int iteratorSize = size;
+
         @Override
         public boolean hasNext() {
-            return size > 0;
+            return iteratorSize > 0;
         }
 
         @Override
         public E next() {
-            return elements[--size];
+            return elements[--iteratorSize];
         }
     }
 }

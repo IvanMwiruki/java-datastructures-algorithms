@@ -37,7 +37,7 @@ public interface Sorter {
      * Returns true if the target is sorted (ascending).
      */
     static boolean isSorted(Comparable[] target) {
-        for (int i = 0; i < target.length; i++) {
+        for (int i = 1; i < target.length; i++) {
             if (less(target[i], target[i - 1])) {
                 return false;
             }
