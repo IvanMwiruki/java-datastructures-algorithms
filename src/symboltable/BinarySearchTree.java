@@ -10,7 +10,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> implements OrderedSymb
     public BinarySearchTree() {}
 
     private class Node {
-        private K key;
+        private final K key;
         private V value;
         private Node left;
         private Node right;
@@ -148,7 +148,8 @@ public class BinarySearchTree<K extends Comparable<K>, V> implements OrderedSymb
 
     @Override
     public K select(int k) {
-        return select(root, k).key;
+        Node x = select(root, k);
+        return x == null ? null : x.key;
     }
 
     private Node select(Node x, int k) {
@@ -207,14 +208,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> implements OrderedSymb
 
     @Override
     public int size(K low, K high) {
-        int size = 0;
-        Iterable<K> keys = keys(low, high);
-
-        for (K key : keys) {
-            size++;
-        }
-
-        return size;
+        return ((Queue<K>) keys(low, high)).size();
     }
 
     @Override
